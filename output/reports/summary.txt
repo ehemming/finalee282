@@ -1,0 +1,12 @@
+#All sequence lengths
+Total number of sequences 	 1870
+Total number of nucleotides 	 145523521
+Total number of Ns 	 1152978
+#Sequences >100kb
+Total number of sequences 	 7
+Total number of nucleotides 	 137547967
+Total number of Ns 	 490385
+#Sequences <100kb
+Total number of sequences 	 1863
+Total number of nucleotides 	 6179905
+Total number of Ns 	 662593
