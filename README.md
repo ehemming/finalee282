@@ -1,4 +1,4 @@
-This directory is for my final bioinformatics project working with the Drosophila melanogaster genome downloaded from flybase.org (current as of 12/10/2016)
+This directory is for my final bioinformatics project working with the Drosophila melanogaster genome downloaded from flybase.org (current as of 12/10/2016).
 
 After making the provided script files executible (chmod u+x ./code/scripts/*.sh ./code/scripts/*.R),
 the entire output of this project can be generated from the main ./finalee282 directory by executing the following four bash scripts (in any order):
