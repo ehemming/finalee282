@@ -1,6 +1,7 @@
 The scripts in this folder were used to complete the final bioinformatics project. The script files are broken down according to the provided assignment structure.
 
 **It is necessary to execute the scripts from the main ./finalee282 directory**
+
 *Scripts can be executed in any order*
 
 #Summarize a genome assembly
