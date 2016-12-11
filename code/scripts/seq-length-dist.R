@@ -2,5 +2,5 @@
 args = commandArgs(trailingOnly=TRUE)
 len <- read.table(args[1], header=FALSE)
 png(filename=args[2])
-hist(len$V2,breaks=20,freq=FALSE, col="blue", xlab="Sequence Length (bp)")
+hist(log(len$V2),breaks=40,freq=FALSE, col="blue", xlab="log(Sequence Length (bp))", main=NULL)
 dev.off()

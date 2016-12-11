@@ -1,33 +1,35 @@
 #!/usr/bin/env bash
-module load perl
-module load R
-module load jje/kent/2014.02.19
-module load jje/jjeutils/0.1a
+module load jje/kent/2014.02.19 jje/jjeutils/0.1a >/dev/null 2>&1
 
-#Get gtf annotation file
-gtf="ftp://ftp.flybase.net/genomes/Drosophila_melanogaster/current/gtf/dmel-all-r6.13.gtf.gz"
-wget -O - -q $gtf \
-| tee data/raw/dmel-all-r6.13.gtf.gz \
-| gunzip \
-> data/raw/dmel-all-r6.13.gtf
+gtfpath="ftp://ftp.flybase.net/genomes/Drosophila_melanogaster/current/gtf/dmel-all-r6.13.gtf.gz" #define path to download gtf annotation file
+infile="data/raw/dmel-all-r6.13.gtf.gz" #define downloaded gtf infile path/name
+outfile="output/reports/summary-gtf.txt" #define summary report outfile path/name
+
+if [ ! -f $infile ]
+then
+wget -O - -q $gtfpath \
+> $infile
+fi
 
 #Problem 1
-echo "#Total number of features of each type" \
-| cat >output/reports/summary-gtf.txt
-
-sort -k 3 data/raw/dmel-all-r6.13.gtf \
+echo "#Total number of features of each type" > $outfile
+gunzip -c $infile \
+| sort -k 3  \
 | awk '{print $3}' \
 | uniq -c \
 | sort -rnk 1 \
-> cat >>output/reports/summary-gtf.txt
+| awk '{print $2 "\t" $1}' \
+> cat >>$outfile
 
 #Problem 2
-echo "#Total number of genes per chromosome arm" \
-| cat >>output/reports/summary-gtf.txt
+echo -e "\n#Total number of genes per chromosome arm" \
+| cat >>$outfile
 
-awk '$3~/^gene/{print $1, $3}' data/raw/dmel-all-r6.13.gtf \
+gunzip -c $infile \
+| awk '$3~/^gene/{print $1}' \
 | awk '$1~/^[X4Y]$|^[23][LR]$/' \
 | sort -nk 1 \
 | uniq -c \
 | sort -rnk 1 \
-> cat >>output/reports/summary-gtf.txt
+| awk '{print $2 "\t" $1}' \
+> cat >>$outfile

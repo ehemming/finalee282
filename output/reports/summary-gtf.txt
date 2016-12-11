@@ -1,25 +1,26 @@
 #Total number of features of each type
- 187124 exon
- 160850 CDS
-  46313 5UTR
-  33328 3UTR
-  30564 start_codon
-  30508 stop_codon
-  30482 mRNA
-  17747 gene
-   2908 ncRNA
-    347 pseudogene
-    340 miRNA
-    313 tRNA
-    289 snoRNA
-    256 pre_miRNA
-    147 rRNA
-     31 snRNA
+exon	187124
+CDS	160850
+5UTR	46313
+3UTR	33328
+start_codon	30564
+stop_codon	30508
+mRNA	30482
+gene	17747
+ncRNA	2908
+pseudogene	347
+miRNA	340
+tRNA	313
+snoRNA	289
+pre_miRNA	256
+rRNA	147
+snRNA	31
+
 #Total number of genes per chromosome arm
-   4185 3R gene
-   3618 2R gene
-   3490 2L gene
-   3454 3L gene
-   2669 X gene
-    113 Y gene
-    111 4 gene
+3R	4185
+2R	3618
+2L	3490
+3L	3454
+X	2669
+Y	113
+4	111
